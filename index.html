@@ -3,78 +3,549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lamiya Zainab</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Portfolio - Lamiya Zainab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #2c3e50;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fbbf24;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .name {
+            color: #fbbf24;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            background-color: white;
+            color: #6366f1;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background-color: #fbbf24;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            display: block;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 4rem 2rem;
+            background-color: #f8f9fa;
+        }
+
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card h3 {
+            color: #6366f1;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .certifications-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .cert-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #6366f1;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .cert-issuer {
+            color: #6366f1;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .cert-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-link {
+            display: inline-block;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .cert-link:hover {
+            color: #8b5cf6;
+            text-decoration: underline;
+        }
+
+        /* Sub Sections */
+        .simulations-section {
+            margin-top: 3rem;
+        }
+
+        .simulations-section h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            border-bottom: 2px solid #6366f1;
+            padding-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contact-btn {
+            background-color: white;
+            color: #6366f1;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            nav a {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body
+<body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">My Portfolio</h1>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+    <nav>
+        <div class="logo">My Portfolio</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1 class="hero-title">Hi, I'm <span class="highlight">Lamiya Zainab</span></h1>
-            <p class="hero-subtitle">A passionate developer building amazing things</p>
-            <a href="#about" class="btn">Learn More</a>
-        </div>
+    <section class="hero" id="home">
+        <h1>Hi, I'm <span class="name">Lamiya Zainab</span></h1>
+        <p>A passionate developer building amazing things</p>
+        <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Learn More</button>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
+    <section class="about" id="about">
+        <div class="about-container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Hello! I'm a beginner developer passionate about learning web development and creating awesome projects. I'm currently participating in hackathons and building my skills in HTML, CSS, and JavaScript.</p>
-                    <p>Specializing in AI, Data Analytics, and Cloud Infrastructure. Currently building practical skills through industry certifications and hands-on learning.Every day is an opportunity to learn something new!</p>
+            <p>I'm a passionate developer with expertise in data analysis, cloud computing, and AI technologies. I've completed multiple professional certifications and job simulations with leading companies like Accenture, Deloitte, AWS, and Oracle.</p>
+            <p>My goal is to build innovative solutions that make a real impact. I'm constantly learning and staying updated with the latest technologies in the industry.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="skills-container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>📊 Data Analysis</h3>
+                    <p>Excel, Data Visualization, Analytics</p>
+                </div>
+                <div class="skill-card">
+                    <h3>☁️ Cloud Computing</h3>
+                    <p>AWS, Oracle Cloud, Solution Architecture</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🤖 AI & ML</h3>
+                    <p>Generative AI, AI Foundations, Python</p>
+                </div>
+                <div class="skill-card">
+                    <h3>💼 Business Tools</h3>
+                    <p>PowerPoint, Google Workspace, Gemini</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Experience</h2>
-            <div class="skills-grid">
-    <!-- Programming -->
-    <div class="skill-card">
-        <div class="skill-icon">🐍</div>
-        <h3>Python & C/C++</h3>
-        <p>Proficient in Python, C, and C++ with strong OOP principles</p>
-    </div>
-    
-    <!-- Cloud -->
-    <div class="skill-card">
-        <div class="skill-icon">☁️</div>
-        <h3>Cloud Platforms</h3>
-        <p>Experience with AWS and Oracle Cloud Infrastructure</p>
-    </div>
-    
-    <!-- Data Analytics -->
-    <div class="skill-card">
-        <div class="skill-icon">📊</div>
-        <h3>Data Analytics</h3>
-        <p>Data analysis and visualization using Excel and analytics tools</p>
-    </div>
-    
-    <!-- Problem Solving -->
-    <div class="skill-card">
-        <div class="skill-icon">🧩</div>
-        <h3>Problem Solving</h3>
-        <p>Algorithm design and efficient solution implementation</p>
-    </div>
-</div>
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="certifications-container">
+            <h2 class="section-title">Professional Certifications & Job Simulations</h2>
+
+            <!-- Job Simulations -->
+            <div class="simulations-section">
+                <h2>🎯 Job Simulations</h2>
+                <div class="certs-grid">
+                    <!-- Accenture -->
+                    <div class="cert-card">
+                        <h3>Technology Consulting Job Simulation</h3>
+                        <p class="cert-issuer">Accenture Australia</p>
+                        <p class="cert-date">Issued Feb 2026</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem;">
+                            <strong>Credential ID:</strong> mMx5m9G7n74NG8hrL
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">PowerPoint</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+
+                    <!-- Deloitte -->
+                    <div class="cert-card">
+                        <h3>Data Analytics Job Simulation</h3>
+                        <p class="cert-issuer">Deloitte Australia</p>
+                        <p class="cert-date">Issued Feb 2026</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem;">
+                            <strong>Credential ID:</strong> iQBe8SSQaGrQDLQN9
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Data Visualization</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+
+                    <!-- AWS -->
+                    <div class="cert-card">
+                        <h3>Solutions Architecture Job Simulation</h3>
+                        <p class="cert-issuer">AWS</p>
+                        <p class="cert-date">Issued Feb 2026</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem;">
+                            <strong>Credential ID:</strong> jKTGEsT49rfug4HHR
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Solution Architecture</span>
+                            <span class="skill-tag">Cloud Computing</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Certifications -->
+            <div class="simulations-section">
+                <h2>🏆 Professional Certifications</h2>
+                <div class="certs-grid">
+                    <!-- Oracle AI Professional -->
+                    <div class="cert-card">
+                        <h3>Certified Generative AI Professional</h3>
+                        <p class="cert-issuer">Oracle Cloud Infrastructure</p>
+                        <p class="cert-date">Issued Nov 2025 · Expires Nov 2027</p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Generative AI</span>
+                            <span class="skill-tag">Cloud Computing</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+
+                    <!-- Oracle AI Foundations -->
+                    <div class="cert-card">
+                        <h3>Certified AI Foundations Associate</h3>
+                        <p class="cert-issuer">Oracle Cloud Infrastructure</p>
+                        <p class="cert-date">Issued Oct 2025 · Expires Oct 2027</p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">AI Foundations</span>
+                            <span class="skill-tag">Oracle OCI</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+
+                    <!-- Python -->
+                    <div class="cert-card">
+                        <h3>Python Basic</h3>
+                        <p class="cert-issuer">HackerRank</p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Programming</span>
+                        </div>
+                        <a href="https://www.hackerrank.com/certificates/1ae9b581efec" class="cert-link" target="_blank">View Credential →</a>
+                    </div>
+
+                    <!-- Google Gemini -->
+                    <div class="cert-card">
+                        <h3>Gemini for Google Workspace</h3>
+                        <p class="cert-issuer">Simplilearn</p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Google Gemini</span>
+                            <span class="skill-tag">Productivity</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+
+                    <!-- Excel -->
+                    <div class="cert-card">
+                        <h3>Excel Mastery</h3>
+                        <p class="cert-issuer">OneRoadmap</p>
+                        <p class="cert-date">Issued Feb 2026</p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Microsoft Excel</span>
+                            <span class="skill-tag">Data Analysis</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+
+                    <!-- Data Analyst -->
+                    <div class="cert-card">
+                        <h3>Data Analyst</h3>
+                        <p class="cert-issuer">OneRoadmap</p>
+                        <p class="cert-date">Issued Feb 2026</p>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Analytics</span>
+                        </div>
+                        <a href="#" class="cert-link">View Credential →</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -90,14 +561,10 @@
         </div>
     </section>
 
+
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 My Portfolio. Built with ❤️</p>
-        </div>
+    <footer>
+        <p>&copy; 2026 Lamiya Zainab. All rights reserved. | Built with ❤️</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
-
 </html>
